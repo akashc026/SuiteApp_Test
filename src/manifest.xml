@@ -1,0 +1,7 @@
+<manifest projecttype="SUITEAPP">
+  <publisherid>com.netsuite</publisherid>
+  <projectid>suiteappcicd</projectid>
+  <projectname>Suiteapp CICD</projectname>
+  <projectversion>1.0.0</projectversion>
+  <frameworkversion>1.0</frameworkversion>
+</manifest>
