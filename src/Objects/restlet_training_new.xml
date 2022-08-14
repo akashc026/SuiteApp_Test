@@ -1,0 +1,25 @@
+<suitelet scriptid="customscript_testsl">
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>Test Suitelet</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <scriptfile>[/SuiteApps/restlet_training_new.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_testsl">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>T</allroles>
+      <audslctrole></audslctrole>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>F</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>Test Suitelet</title>
+    </scriptdeployment>
+  </scriptdeployments>
+</suitelet>
