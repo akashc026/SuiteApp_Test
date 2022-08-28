@@ -6,8 +6,14 @@
  define([], () => {
     function onRequest({ request, response }) {
       try {
-        if (request.method === "GET") log.debug("get request", "received");
-        else log.debug("post request", "received");
+        if (request.method === "GET")
+        { log.debug("get request", "received");
+      }
+        else 
+        {
+          log.debug("post request", "receivedAlll 1234");
+          log.debug("post request", "received");
+        }
       } catch (err) {
         log.error("Error", err);
       }

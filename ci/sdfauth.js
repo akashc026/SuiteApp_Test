@@ -1,13 +1,19 @@
 const { exec } = require("child_process");
+const realm = process.env.realm_master;
+const token = process.env.token_master;
+const secret = process.env.secret_master;
 
-const realmEnvVar = `realm_${process.env.CI_MERGE_REQUEST_TARGET_BRANCH_NAME}`;
-const realm = process.env[realmEnvVar];
-const tokenEnvVar = `token_${process.env.CI_MERGE_REQUEST_TARGET_BRANCH_NAME}`;
-const token = process.env[tokenEnvVar];
-const secretEnvVar = `secret_${process.env.CI_MERGE_REQUEST_TARGET_BRANCH_NAME}`;
-const secret = process.env[secretEnvVar];
-
-const authCmd = `suitecloud account:savetoken --account ${realm} --authid "cisdf" --tokenid ${token} --tokensecret ${secret}`;
+const real_gapsol = process.env.real_gapsol;
+const token_gapsol = process.env.token_gapsol;
+const secret_gapsol = process.env.secret_gapsol;
+const branch = process.env.CI_COMMIT_BRANCH;
+if(branch == "master")
+{
+var authCmd = `suitecloud account:savetoken --account ${real_gapsol} --authid "cisdf" --tokenid ${token_gapsol} --tokensecret ${secret_gapsol}`;
+}
+else{
+  var authCmd = `suitecloud account:savetoken --account ${realm} --authid "cisdf" --tokenid ${token} --tokensecret ${secret}`;
+}
 
 exec(authCmd, realm, (error, stdout, stderr) => {
   if (error) {
