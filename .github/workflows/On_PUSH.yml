@@ -6,10 +6,9 @@ on:
     - '*'
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
-      env:
+    env:
       REALM_TECHNICAL: ${{ secrets.REALM_TECHNICAL }}
       TOKEN_TECHNICAL: ${{ secrets.TOKEN_TECHNICAL }}
       SECRET_TECHNICAL: ${{ secrets.SECRET_TECHNICAL }}
