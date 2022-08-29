@@ -29,6 +29,11 @@ jobs:
       credentials:
         username: ${{secrets.REGISTRY_USER}}
         password: ${{secrets.REGISTRY_PASS}}
+    env:
+      REALM_TECHNICAL: ${{ secrets.REALM_TECHNICAL }}
+      TOKEN_TECHNICAL: ${{ secrets.TOKEN_TECHNICAL }}
+      SECRET_TECHNICAL: ${{ secrets.SECRET_TECHNICAL }}
+      
     steps:
     - uses: actions/checkout@v3
     - name: Get all npm dependencies

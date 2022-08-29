@@ -1,7 +1,7 @@
 const { exec } = require("child_process");
-const realm = process.secrets.REALM_TECHNICAL;
-const token = process.secrets.TOKEN_TECHNICAL;
-const secret = process.secrets.SECRET_TECHNICAL;
+const realm = process.env.REALM_TECHNICAL;
+const token = process.env.TOKEN_TECHNICAL;
+const secret = process.env.SECRET_TECHNICAL;
 
 const real_gapsol = process.env.real_gapsol;
 const token_gapsol = process.env.token_gapsol;
