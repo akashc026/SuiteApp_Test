@@ -31,6 +31,8 @@ jobs:
         password: ${{secrets.REGISTRY_PASS}}
     steps:
     - uses: actions/checkout@v3
+    - name: install sudo
+      run : apt install sudo
     - name: Get all npm dependencies
       run : npm ci
     - name: Unit Test (Jest)
