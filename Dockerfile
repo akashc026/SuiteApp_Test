@@ -1,4 +1,4 @@
-FROM ubuntu-latest
+FROM ubuntu:latest
 RUN apk add --no-cache bash
 RUN apk add --update npm
 RUN apk add openjdk11
