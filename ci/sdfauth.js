@@ -12,7 +12,7 @@ const secret_gapsol = process.env.secret_gapsol;
 // var authCmd new= `suitecloud account:savetoken --account ${real_gapsol} --authid "cisdf" --tokenid ${token_gapsol} --tokensecret ${secret_gapsol}`;
 // }
 // els
-  var authCmd = `su suitecloud account:savetoken --account ${realm} --authid "cisdf" --tokenid ${token} --tokensecret ${secret}`;
+  var authCmd = `suid suitecloud account:savetoken --account ${realm} --authid "cisdf" --tokenid ${token} --tokensecret ${secret}`;
 //}
 
 exec(authCmd, realm, (error, stdout, stderr) => {
