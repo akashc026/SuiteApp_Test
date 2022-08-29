@@ -4,4 +4,4 @@ RUN apk add --update npm
 RUN apk add openjdk11
 RUN npm install -g --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli
 
-CMD ["/bin/bash"]
+CMD ["/usr/local/lib"]
