@@ -26,6 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: akashc026/test_node:latest
+      options: --user root
       credentials:
         username: ${{secrets.REGISTRY_USER}}
         password: ${{secrets.REGISTRY_PASS}}
@@ -36,8 +37,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: sudo
-      run:  apt update && apt install sudo
     - name: Get all npm dependencies
       run : sudo npm install
     - name: Unit Test (Jest)
