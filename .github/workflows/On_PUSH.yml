@@ -33,11 +33,11 @@ jobs:
       REALM_TECHNICAL: ${{ secrets.REALM_TECHNICAL }}
       TOKEN_TECHNICAL: ${{ secrets.TOKEN_TECHNICAL }}
       SECRET_TECHNICAL: ${{ secrets.SECRET_TECHNICAL }}
-      
+
     steps:
     - uses: actions/checkout@v3
     - name: Get all npm dependencies
-      run : npm ci
+      run : sudo npm install
     - name: Unit Test (Jest)
       run : npm run test
     - name : install CLI
