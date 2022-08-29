@@ -38,11 +38,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Install sudo package
+      run: apt update && apt install sudo
     - name: Get all npm dependencies
       run : npm install
     - name: Unit Test (Jest)
       run : npm run test
     - name : install CLI
-      run: npm install -g --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli
+      run:  npm install -g --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli
     - name: Validate Suiteapp
       run : npm run validate
