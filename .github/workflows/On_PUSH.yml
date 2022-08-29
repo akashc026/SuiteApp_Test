@@ -25,6 +25,7 @@ jobs:
   validate_test:
     # needs: build
     runs-on: ubuntu-latest
+    shell: bash
     container:
       image: akashc026/test_node:latest
       options: --user root
