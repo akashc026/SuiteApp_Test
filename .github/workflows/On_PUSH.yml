@@ -35,5 +35,7 @@ jobs:
       run : npm ci
     - name: Unit Test (Jest)
       run : npm run test
+    - name : install CLI
+      run: npm install -g --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli
     - name: Validate Suiteapp
       run : npm run validate
