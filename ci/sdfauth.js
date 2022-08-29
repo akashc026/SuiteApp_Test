@@ -14,6 +14,7 @@ const secret_gapsol = process.env.secret_gapsol;
 // els
   var authCmd = `suitecloud account:savetoken --account ${realm} --authid "cisdf" --tokenid ${token} --tokensecret ${secret}`;
 //}
+
 exec(authCmd, realm, (error, stdout, stderr) => {
   if (error) {
     console.log(`error: ${error.message}`);
