@@ -25,7 +25,6 @@ jobs:
   validate_test:
     # needs: build
     runs-on: ubuntu-latest
-    shell: bash
     container:
       image: akashc026/test_node:latest
       options: --user root
@@ -40,7 +39,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Install sudo package
-      run: apt update && apt install sudo
+      run: sudo apt update && apt install sudo
     - name: Get all npm dependencies
       run : npm install
     - name: Unit Test (Jest)
