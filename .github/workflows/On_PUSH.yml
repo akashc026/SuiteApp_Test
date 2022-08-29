@@ -38,8 +38,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Install sudo package
-      run: sudo apt update && apt install sudo
     - name: Get all npm dependencies
       run : npm install
     - name: Unit Test (Jest)
