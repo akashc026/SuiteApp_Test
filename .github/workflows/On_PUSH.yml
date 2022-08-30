@@ -26,7 +26,6 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: akashc026/test_node:latest
-      user: root
       options: --user root
       credentials:
         username: ${{secrets.REGISTRY_USER}}
@@ -42,6 +41,8 @@ jobs:
       run : npm install
     - name: Unit Test (Jest)
       run : npm run test
+    - name: whoami
+      run : sudo whoami
     - name : install CLI
       run:  npm install -g --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli
     - name: Validate Suiteapp
