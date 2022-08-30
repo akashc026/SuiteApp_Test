@@ -31,6 +31,7 @@ jobs:
       credentials:
         username: ${{secrets.REGISTRY_USER}}
         password: ${{secrets.REGISTRY_PASS}}
+    permissions: read-all|write-all
     env:
       REALM_TECHNICAL: ${{ secrets.REALM_TECHNICAL }}
       TOKEN_TECHNICAL: ${{ secrets.TOKEN_TECHNICAL }}
