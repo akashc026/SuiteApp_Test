@@ -31,14 +31,13 @@ jobs:
       SECRET_TECHNICAL: ${{ secrets.SECRET_TECHNICAL }}
     container:
       image: akashc026/test_node:latest
+      options: --read-only
       credentials:
         username: ${{secrets.REGISTRY_USER}}
         password: ${{secrets.REGISTRY_PASS}}
    
     steps:
     - uses: actions/checkout@v3
-    - name: run root container
-      run : docker exec -it --user root $CONTAINER_ID /bin/sh
     - name: Get all npm dependencies
       run : npm install
     - name: Unit Test (Jest)
