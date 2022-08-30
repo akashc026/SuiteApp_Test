@@ -5,8 +5,6 @@ RUN apk add --no-cache bash
 RUN apk add --update npm
 RUN apk add openjdk11
 RUN npm install -g --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli
-RUN sed -i -e "s/bin\/ash/bin\/sh/" /etc/passwd
-RUN whoami
 RUN sudo whoami
 CMD ["/bin/bash"]
 

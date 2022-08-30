@@ -43,7 +43,5 @@ jobs:
       run : npm run test
     - name: whoami
       run : sudo whoami
-    - name : install CLI
-      run:  npm install -g --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli
     - name: Validate Suiteapp
       run : npm run validate
