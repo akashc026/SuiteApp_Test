@@ -39,7 +39,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Get all npm dependencies
-      run : npm install
+      run : npm install -g --unsafe-perm=true --allow-root
     - name: Unit Test (Jest)
       run : npm run test
     - name : install CLI
