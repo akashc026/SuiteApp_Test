@@ -21,10 +21,11 @@ jobs:
       run: docker build -t sdf_first:suiteapp .
     - name: Add tag to push
       run : docker tag sdf_first:suiteapp akashc026/test_node:latest
-    - name: Push Docker image
-      run : docker push akashc026/test_node:latest
-    - name : Run docker image
-      run : docker run akashc026/test_node:latest
+    - uses : docker://akashc026/test_node:latest
+    # - name: Push Docker image
+    #   run : docker push akashc026/test_node:latest
+    # - name : Run docker image
+    #   run : docker run akashc026/test_node:latest
     - name: Get all npm dependencies
       run : npm install
     - name: Unit Test (Jest)
