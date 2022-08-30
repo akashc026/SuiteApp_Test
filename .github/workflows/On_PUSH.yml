@@ -24,7 +24,7 @@ jobs:
     - name: Push Docker image
       run : docker push akashc026/test_node:latest
     - name : Run docker image
-      run : docker run akashc026/test_node:latest /bin/bash -c "make test"
+      run : docker run akashc026/test_node:latest /bin/bash
     - name: Get all npm dependencies
       run : npm install
     - name: Unit Test (Jest)
