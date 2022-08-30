@@ -5,7 +5,7 @@
     "test": "jest",
     "validate": "if [ -s src/deploy.xml ]; then npm run sdfvalidatesoft; else echo \"no files/objects to deploy\"; fi;",
     "deploy": "if [ -s src/deploy.xml ]; then npm run sdfdeploy; else echo \"no files/objects to deploy\"; fi;",
-    "sdfvalidatesoft": "suitecloud project:adddependencies && suitecloud project:validate --server",
+    "sdfvalidatesoft": "node ci/sdfauth.js && suitecloud project:adddependencies && suitecloud project:validate --server",
     "sdfdeploy": "node ci/sdfauth.js && suitecloud project:adddependencies && suitecloud project:validate --server &&  suitecloud project:deploy"
   },
   "devDependencies": {
