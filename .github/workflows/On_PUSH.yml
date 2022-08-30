@@ -24,13 +24,13 @@ jobs:
   validate_test:
     needs: build
     runs-on: ubuntu-latest
+    permissions: read-all|write-all
     container:
       image: akashc026/test_node:latest
       options: --user root
       credentials:
         username: ${{secrets.REGISTRY_USER}}
         password: ${{secrets.REGISTRY_PASS}}
-    permissions: read-all|write-all
     env:
       REALM_TECHNICAL: ${{ secrets.REALM_TECHNICAL }}
       TOKEN_TECHNICAL: ${{ secrets.TOKEN_TECHNICAL }}
