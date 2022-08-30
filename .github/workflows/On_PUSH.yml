@@ -45,6 +45,6 @@ jobs:
     - name : install CLI
       run:  npm install -g --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli
     - name : ndsjc
-      run : chown -R $(whoami) /github/home/.suitecloud-sdk/
+      run : chown -R $(whoami) /github/home/.suitecloud-sdk/suitecloud-sdk-settings.json
     - name: Validate Suiteapp
       run : npm run validate
