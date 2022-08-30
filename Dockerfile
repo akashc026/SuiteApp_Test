@@ -1,4 +1,5 @@
 FROM alpine:3.14
+RUN sudo whoami
 USER root
 RUN apk --no-cache update && apk --no-cache add sudo
 RUN apk add --no-cache bash
