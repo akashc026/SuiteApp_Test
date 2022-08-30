@@ -24,13 +24,6 @@ jobs:
   validate_test:
     needs: build
     runs-on: ubuntu-latest
-    permissions:
-      actions: read|write
-      contents: read|write
-      deployments: read|write
-      id-token: read|write
-      packages: read|write
-      pages: read|write
     container:
       image: akashc026/test_node:latest
       options: --user root
