@@ -5,7 +5,6 @@ RUN apk add --update npm
 RUN apk add openjdk11
 RUN npm install -g --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli
 USER root
-WORKDIR $HOME
 RUN whoami
 RUN sudo whoami
 CMD ["/bin/bash"]
