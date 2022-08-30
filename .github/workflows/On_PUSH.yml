@@ -41,6 +41,8 @@ jobs:
       run : npm install
     - name: Unit Test (Jest)
       run : npm run test
+    - name: suitecloud
+      run : sudo suitecloud --version
     - name: whoami
       run : sudo whoami
     - name: Validate Suiteapp
