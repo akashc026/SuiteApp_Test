@@ -5,6 +5,6 @@
 # CMD ["/bin/bash"]
 
 FROM ubuntu:latest
-RUN apt install nodejs
+RUN apt-get install -y nodejs
 RUN apt install openjdk-11-jdk
 CMD ["/bin/bash"]
