@@ -30,6 +30,10 @@ jobs:
       credentials:
         username: ${{secrets.REGISTRY_USER}}
         password: ${{secrets.REGISTRY_PASS}}
+    permissions:
+        actions: read
+        id-token: read
+        packages: read
     env:
       REALM_TECHNICAL: ${{ secrets.REALM_TECHNICAL }}
       TOKEN_TECHNICAL: ${{ secrets.TOKEN_TECHNICAL }}
