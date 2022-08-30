@@ -26,6 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: akashc026/test_node:latest
+      user: root
       options: --user root
       credentials:
         username: ${{secrets.REGISTRY_USER}}
