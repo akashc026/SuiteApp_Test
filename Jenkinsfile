@@ -5,6 +5,7 @@ pipeline {
 
     stages {
         stage('Build') {
+            agent { dockerfile true}
             steps {
                bat 'npm ci'
             }
@@ -16,7 +17,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                  'Deploying....'
+                echo  'Deploying....'
             }
         }
     }
