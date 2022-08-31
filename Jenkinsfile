@@ -1,11 +1,10 @@
 pipeline {
-    agent none
+    agent { dockerfile true }
 
     stages {
         stage('Build') {
-            agent { dockerfile true }
             steps {
-                bat 'npm ci'
+               bat 'npm ci'
             }
         }
         stage('Validate_Test') {
@@ -15,7 +14,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                  'Deploying....'
             }
         }
     }
