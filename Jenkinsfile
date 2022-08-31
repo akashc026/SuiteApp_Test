@@ -1,11 +1,12 @@
 pipeline {
     agent { 
-        docker{ image "docker:dind"}
+        docker{ image "docker:dind"
+                args '-v /usr/local/bin/docker:/usr/bin/docker'
+            }
      }
 
     stages {
         stage('Build') {
-            agent { dockerfile true}
             steps {
                bat 'npm ci'
             }
