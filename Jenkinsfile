@@ -1,8 +1,11 @@
 pipeline {
-    agent { dockerfile true }
+    agent { 
+        docker{ image :"docker:dind"}
+     }
 
     stages {
         stage('Build') {
+            agent { dockerfile true}
             steps {
                bat 'npm ci'
             }
