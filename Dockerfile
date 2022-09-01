@@ -1,7 +1,6 @@
 FROM alpine:3.14
 RUN apk --no-cache update && apk --no-cache add sudo 
 USER root
-RUN echo 'root:Docker!' | chpasswd
 RUN apk add --no-cache bash
 RUN apk add --update npm
 RUN apk add openjdk11
