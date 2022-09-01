@@ -3,7 +3,6 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-              sh '-u npm ci'
               echo 'Building.....'
             }
         }
