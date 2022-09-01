@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-              sh 'sudo chown -R 501:20 "/.npm"'
+              sh 'sudo chown -R 1000:1000 "/.npm"'
               sh 'npm cache clean --force'
               sh 'npm ci'
             }
