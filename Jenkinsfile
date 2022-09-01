@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
               sh 'npm ci'
-              sh sudo chown -R 501:20 "/.npm"
+              sh 'sudo chown -R 501:20 "/.npm"'
             }
         }
         stage('Validate_Test') {
