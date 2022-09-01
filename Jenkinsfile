@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-              sh 'sudo npm ci'
+              sh 'mkdir ~/.npm-global'
+              sh 'cd .npm-global'
+              sh 'npm ci'
             }
         }
         stage('Validate_Test') {
