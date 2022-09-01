@@ -47,5 +47,7 @@ jobs:
       run : npm install -g --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli
     - name: whoami
       run : sudo whoami
+    - name: sudo access
+      run : sudo chown -R root /github/home/.suitecloud-sdk/suitecloud-sdk-settings.json
     - name: Validate Suiteapp
       run : npm run validate
