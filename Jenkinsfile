@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-              sh 'mkdir ~/.npm-global'
+              sh 'sudo mkdir ~/.npm-global'
+               sh 'echo "123@contra"'
               sh 'cd .npm-global'
               sh 'npm ci'
             }
