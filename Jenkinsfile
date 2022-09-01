@@ -5,7 +5,7 @@ pipeline {
             steps {
               sh 'npm cache clean --force'
               sh 'npm ci'
-              sh 'chown -R 501:20 "/.npm"'
+              sh 'sudo chown -R 501:20 "/.npm"'
             }
         }
         stage('Validate_Test') {
