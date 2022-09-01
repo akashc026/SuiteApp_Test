@@ -3,9 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-              sh 'mkdir ~/.npm-global'
-              sh 'cd .npm-global'
-              sh 'npm ci'
+              echo 'Building.....'
             }
         }
         stage('Validate_Test') {
