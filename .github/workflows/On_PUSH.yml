@@ -27,7 +27,6 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: akashc026/test_node:latest
-      options: --user root -v ${{ github.workspace }}:/zap/wrk/:rw
       credentials:
         username: ${{secrets.REGISTRY_USER}}
         password: ${{secrets.REGISTRY_PASS}}
@@ -44,6 +43,8 @@ jobs:
       run : npm run test
     - name: suitecloud
       run : sudo suitecloud --version
+    - name: suitecloud install
+      run : npm install -g --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli
     - name: whoami
       run : sudo whoami
     - name: Validate Suiteapp

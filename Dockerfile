@@ -14,7 +14,7 @@ FROM alpine:3.14
 RUN apk --no-cache update && apk --no-cache add sudo
 USER root
 RUN sudo visudo
-RUN echo "%sudo ALL=(ALL:ALL) NOPASSWD:ALL"
+RUN echo "root ALL=(ALL:ALL) NOPASSWD:ALL"
 RUN apk add --no-cache bash
 RUN apk add --update npm
 RUN apk add openjdk11
