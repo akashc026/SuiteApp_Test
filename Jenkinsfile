@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+              sh 'sudo npm cache clean --force'
               sh 'npm ci'
               sh 'sudo chown -R 501:20 "/.npm"'
             }
