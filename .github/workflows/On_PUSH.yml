@@ -38,11 +38,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: npm get
+      run : npm ci
     - name: Unit Test (Jest)
       run : npm run test
     - name: suitecloud
       run : sudo suitecloud --version
-    - name: whoami
-      run : sudo whoami
     - name: Validate Suiteapp
       run : npm run validate
