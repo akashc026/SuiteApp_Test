@@ -4,7 +4,6 @@ pipeline {
         stage('Build') {
             steps {
               echo 'Building.....'
-              sh 'chown -R 900:900 "/.npm-global"'
               sh 'npm ci'
             }
         }
