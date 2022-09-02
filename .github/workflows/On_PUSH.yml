@@ -45,6 +45,6 @@ jobs:
     - name: suitecloud
       run : suitecloud --version
     - name: Dependency Suiteapp
-      run : sudo suitecloud project:adddependencies
+      run : suitecloud project:adddependencies
     - name: Validate Suiteapp
-      run : sudo suitecloud project:validate
+      run : suitecloud project:validate
