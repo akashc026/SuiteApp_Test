@@ -10,11 +10,11 @@ ENV PATH=$PATH:/home/node/.npm-global/bin
 
 RUN apk add --no-cache openjdk11-jdk
 
-USER node
+USER root
 
 RUN npm install -g --acceptsuitecloudsdklicense @oracle/suitecloud-cli
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 ENTRYPOINT ["suitecloud"]
 
