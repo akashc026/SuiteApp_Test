@@ -2,6 +2,7 @@
 FROM alpine:3.14
 RUN apk add --no-cache bash
 RUN apk add --update npm
+WORKDIR /usr/app
 COPY package*.json ./
 RUN npm ci
 RUN apk add openjdk11
