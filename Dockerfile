@@ -1,6 +1,6 @@
 FROM alpine:3.14
-RUN adduser -rm -d /home/sdf -s /bin/bash -g root -G sudo -u 1001 sdf
-USER sdf
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+USER appuser
 WORKDIR /home/sdf
 RUN apk add --no-cache bash
 RUN apk add --update npm
