@@ -5,7 +5,7 @@ RUN apk add --no-cache bash
 RUN apk add --update npm
 RUN apk add openjdk11
 WORKDIR /usr/app
-COPY package*.json /usr/app
+COPY package*.json ./usr/app
 RUN npm install -g --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli
 RUN npm ci
 COPY . /usr/app
