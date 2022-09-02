@@ -39,7 +39,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Unit Test (Jest)
-      run : npm run validate
+      run : npm run test
     - name: suitecloud
       run : sudo suitecloud --version
     - name: whoami
