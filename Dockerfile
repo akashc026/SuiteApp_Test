@@ -4,8 +4,8 @@ USER root
 RUN apk add --no-cache bash
 RUN apk add --update npm
 RUN apk add openjdk11
-COPY ./ ./
-RUN npm install
+COPY package*.json ./
+RUN npm ci
 RUN npm install -g --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli
 
 CMD ["/bin/bash"]
