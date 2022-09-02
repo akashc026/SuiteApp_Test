@@ -19,8 +19,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo  'Deploying.....'
-                sh 'npm install -g --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli'
-                sh 'suitecloud project:adddependencies'
+                sh 'mkdir ~/.npm-global'
+              //  sh 'npm install -g --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli'
+              //  sh 'suitecloud project:adddependencies'
             }
         }
     }
