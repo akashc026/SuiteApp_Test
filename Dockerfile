@@ -5,8 +5,8 @@ RUN apk add --no-cache bash
 RUN apk add --update npm
 RUN apk add openjdk11
 USER myawesomeuser
-WORKDIR /usr/app
-RUN chown -R myawesomeuser:myawesomegroup /usr/app
+WORKDIR /home/myawesomeuser
+RUN chown -R myawesomeuser:myawesomegroup /home/myawesomeuser
 COPY package*.json ./
 RUN npm install
 #COPY ./ /usr/app
