@@ -6,6 +6,7 @@ RUN chown -R cassandra:cassandra /home/cassandra/
 RUN echo 'cassandra  ALL=(ALL) /bin/su' >>  /etc/sudoers
 USER cassandra
 ENTRYPOINT [ "sh","/usr/local/run.sh"]
+RUN npm install
 RUN apk add --update npm
 RUN apk add openjdk11
 RUN npm install -g --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli
