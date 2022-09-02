@@ -2,8 +2,8 @@ FROM alpine:3.14
 RUN addgroup -S myawesomegroup
 RUN adduser -S myawesomeuser -G myawesomegroup
 USER myawesomeuser
-RUN chown -R myawesomeuser:myawesomegroup /usr/app
 WORKDIR /usr/app
+RUN chown -R myawesomeuser:myawesomegroup /usr/app
 COPY package*.json ./
 RUN npm install
 RUN apk add --no-cache bash
