@@ -1,5 +1,5 @@
 FROM alpine:3.14
-RUN useradd -rm -d /home/sdf -s /bin/bash -g root -G sudo -u 1001 sdf
+RUN adduser -rm -d /home/sdf -s /bin/bash -g root -G sudo -u 1001 sdf
 USER sdf
 WORKDIR /home/sdf
 RUN apk add --no-cache bash
