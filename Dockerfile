@@ -7,7 +7,7 @@ USER myawesomeuser
 WORKDIR /usr/app
 RUN chown -R myawesomeuser:myawesomegroup /usr/app
 COPY package*.json ./
-RUN npm install
+#RUN npm install
 COPY ./ /usr/app
 RUN apk add openjdk11
 RUN npm install -g --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli
