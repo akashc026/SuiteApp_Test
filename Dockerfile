@@ -1,4 +1,6 @@
 FROM alpine:3.14
+RUN apk add --no-cache bash
+RUN apk add --update npm
 RUN addgroup -S myawesomegroup
 RUN adduser -S myawesomeuser -G myawesomegroup
 USER myawesomeuser
@@ -7,8 +9,6 @@ COPY package*.json ./
 RUN npm install
 COPY ./ /usr/app
 RUN chown -R myawesomeuser:myawesomegroup /usr/app
-RUN apk add --no-cache bash
-RUN apk add --update npm
 RUN apk add openjdk11
 RUN npm install -g --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli
 CMD ["/bin/bash"]
