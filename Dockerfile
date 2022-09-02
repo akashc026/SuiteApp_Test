@@ -1,7 +1,6 @@
 FROM alpine:latest
 RUN apk --no-cache update \
     && apk --no-cache add sudo
-copy run.sh /usr/local/
 RUN addgroup -S cassandra && adduser -S cassandra -G cassandra
 RUN chown -R cassandra:cassandra /home/cassandra/
 RUN echo 'cassandra  ALL=(ALL) /bin/su' >>  /etc/sudoers
