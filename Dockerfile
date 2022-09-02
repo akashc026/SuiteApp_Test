@@ -1,8 +1,6 @@
 FROM alpine:3.14
 RUN apk --no-cache update && apk --no-cache add sudo
-RUN adduser -D $USER && mkdir -p /etc/sudoers.d \
-        && echo "$USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/$USER \
-        && chmod 0440 /etc/sudoers.d/$USER
+RUN adduser -D $USER && mkdir -p /etc/sudoers.d && echo "$USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/$USER && chmod 0440 /etc/sudoers.d/$USER
 USER $USER
 WORKDIR $HOME
 RUN apk add --no-cache bash
