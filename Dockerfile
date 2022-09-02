@@ -1,27 +1,17 @@
-FROM alpine:latest
-RUN apk --no-cache update \
-    && apk --no-cache add sudo
-RUN addgroup -S cassandra && adduser -S cassandra -G cassandra
-RUN chown -R cassandra:cassandra /home/cassandra/
-RUN echo 'cassandra  ALL=(ALL) /bin/su' >>  /etc/sudoers
-USER cassandra
-ENTRYPOINT [ "sh","/usr/local/run.sh"]
-RUN npm install
+
+FROM alpine:3.14
+RUN adduser -D $USER && mkdir -p /etc/sudoers.d \
+        && echo "$USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/$USER \
+        && chmod 0440 /etc/sudoers.d/$USER
+USER $USER
+WORKDIR $HOME
+RUN whoami
+RUN sudo whoami
+RUN apk add --no-cache bash
 RUN apk add --update npm
 RUN apk add openjdk11
 RUN npm install -g --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli
-
-
-
-#FROM alpine:3.14
-#RUN addgroup -S appgroup && adduser -S appuser -G appgroup
-#USER appuser
-#WORKDIR /home/sdf
-#RUN apk add --no-cache bash
-#RUN apk add --update npm
-#RUN apk add openjdk11
-#RUN npm install -g --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli
-#CMD ["/bin/bash"]
+CMD ["/bin/bash"]
 
 
 # FROM alpine:3.14
