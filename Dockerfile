@@ -4,7 +4,7 @@ ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 
 ENV PATH=$PATH:/home/node/.npm-global/bin
 
-RUN apk add --no-cache bash
+# RUN apk add --no-cache bash
 
 RUN apk add --no-cache openjdk11-jdk
 
@@ -16,7 +16,7 @@ WORKDIR /usr/src/app
 
 ENTRYPOINT ["suitecloud"]
 
-CMD ["/bin/bash"]
+CMD ["-h"]
 
 
 # FROM alpine:3.14
