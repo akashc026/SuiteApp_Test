@@ -7,7 +7,7 @@ pipeline {
         stage('Build') {
             steps {
               echo 'Building.....'
-              sh 'npm ci'
+              sh 'npm install'
             }
         }
         stage('Validate_Test') {
