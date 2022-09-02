@@ -1,6 +1,6 @@
 FROM alpine:3.14
 RUN apk add --no-cache bash
-#RUN apk add --update npm
+RUN apk add --update npm
 RUN apk add openjdk11
 RUN addgroup -S myawesomegroup
 RUN adduser -S myawesomeuser -G myawesomegroup
