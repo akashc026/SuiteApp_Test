@@ -1,10 +1,13 @@
 pipeline {
     agent { dockerfile true }
+    environment {
+        HOME = '.'
+    }
     stages {
         stage('Build') {
             steps {
               echo 'Building.....'
-//               sh 'npm ci'
+              sh 'npm ci'
             }
         }
         stage('Validate_Test') {
