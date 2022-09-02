@@ -1,19 +1,9 @@
-FROM openjdk:11
-
-RUN apt-get install -y curl \
-  && curl -sL https://deb.nodesource.com/setup_9.x | bash - \
-  && apt-get install -y nodejs \
-  && curl -L https://www.npmjs.com/install.sh | sh
-  RUN npm install -g --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli
-  CMD ["/bin/bash"]
-# RUN npm install -g grunt grunt-cli
-
-# FROM alpine:3.14
-# RUN apk add --no-cache bash
-# RUN apk add --update npm
-# RUN apk add openjdk11
-# RUN npm install -g --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli
-# CMD ["/bin/bash"]
+FROM alpine:3.14
+RUN apk add --no-cache bash
+RUN apk add --update npm
+RUN apk add openjdk11
+RUN npm install -g --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli
+CMD ["/bin/bash"]
 
 
 # FROM alpine:3.14
