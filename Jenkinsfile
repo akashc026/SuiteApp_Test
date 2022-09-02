@@ -25,7 +25,7 @@ pipeline {
                 sh 'NPM_CONFIG_PREFIX=~/.npm-global'
             //    sh 'source ~/.bash_profile'
             //    sh 'npm install -g jshint'
-                sh 'npm install -g --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli'
+            //    sh 'npm install -g --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli'
                 sh 'suitecloud project:adddependencies'
             }
         }
