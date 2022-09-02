@@ -1,17 +1,44 @@
-FROM alpine:3.14
-RUN addgroup -S myawesomegroup
-RUN adduser -S myawesomeuser -G myawesomegroup
-RUN apk add --no-cache bash
-RUN apk add --update npm
-RUN apk add openjdk11
-USER myawesomeuser
-WORKDIR /home/myawesomeuser
-RUN chown -R myawesomeuser:myawesomegroup /home/myawesomeuser
-COPY package*.json ./
-RUN npm install
-#COPY ./ /usr/app
-RUN npm install --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli
-CMD ["/bin/bash"]
+FROM node:16.15.1-alpine3.16
+
+ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
+
+ENV PATH=$PATH:/home/node/.npm-global/bin
+
+RUN apk add --no-cache openjdk11-jdk
+
+USER node
+
+RUN npm install -g --acceptsuitecloudsdklicense @oracle/suitecloud-cli
+
+WORKDIR /usr/src/app
+
+ENTRYPOINT ["suitecloud"]
+
+CMD ["-h"]
+
+
+
+
+
+
+
+
+
+
+# FROM alpine:3.14
+# RUN addgroup -S myawesomegroup
+# RUN adduser -S myawesomeuser -G myawesomegroup
+# RUN apk add --no-cache bash
+# RUN apk add --update npm
+# RUN apk add openjdk11
+# USER myawesomeuser
+# WORKDIR /home/myawesomeuser
+# RUN chown -R myawesomeuser:myawesomegroup /home/myawesomeuser
+# COPY package*.json ./
+# RUN npm install
+# #COPY ./ /usr/app
+# RUN npm install --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli
+# CMD ["/bin/bash"]
 
 
 # FROM alpine:3.14
