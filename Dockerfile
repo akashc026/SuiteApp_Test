@@ -1,5 +1,7 @@
 FROM node:16.15.1-alpine3.16
 
+RUN apk --no-cache update && apk --no-cache add sudo
+
 ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 
 ENV PATH=$PATH:/home/node/.npm-global/bin
