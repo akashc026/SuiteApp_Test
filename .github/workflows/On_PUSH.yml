@@ -44,5 +44,7 @@ jobs:
       run : npm run test
     - name: suitecloud
       run : suitecloud --version
+    - name: Dependency Suiteapp
+      run : suitecloud project:adddependencies
     - name: Validate Suiteapp
-      run : npm run validate
+      run : suitecloud project:validate
