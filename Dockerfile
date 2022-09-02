@@ -12,7 +12,7 @@ RUN apk add --no-cache openjdk11-jdk
 
 USER root
 
-RUN npm install -g --acceptsuitecloudsdklicense @oracle/suitecloud-cli
+RUN npm install -g --acceptsuitecloudsdklicense @oracle/suitecloud-cli@1.2.0
 
 WORKDIR /app
 
