@@ -1,8 +1,5 @@
 
 FROM alpine:3.14
-RUN apt-get update && apt-get -y install sudo
-RUN adduser -m john && echo "john:john" | chpasswd && adduser john sudo
-USER john
 RUN apk add --no-cache bash
 RUN apk add --update npm
 RUN apk add openjdk11
