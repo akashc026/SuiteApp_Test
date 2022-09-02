@@ -23,7 +23,7 @@ pipeline {
 //                 sh 'npm config set prefix "~/.npm-global"'
 //                 sh 'export PATH=~/.npm-global/bin:$PATH'
                 sh 'NPM_CONFIG_PREFIX=~/.npm-global'
-                sh 'source ~/.profile'
+                sh 'source ~/.bash_profile'
                 sh 'npm install -g jshint'
               //  sh 'npm install -g --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli'
               //  sh 'suitecloud project:adddependencies'
