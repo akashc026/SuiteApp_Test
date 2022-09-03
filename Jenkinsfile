@@ -1,8 +1,8 @@
 pipeline {
     agent { dockerfile true }
-    environment {
-        HOME = '.'
-    }
+//     environment {
+//         HOME = '.'
+//     }
     stages {
         stage('Build') {
             steps {
