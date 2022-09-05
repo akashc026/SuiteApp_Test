@@ -46,6 +46,8 @@ jobs:
       run : suitecloud --version
     - name: Dependency Suiteapp
       run : sudo suitecloud project:adddependencies
+    - name : Install sudo prompt
+      run : npm install sudo-prompt
     # - name: Validate Suiteapp
     #   run : suitecloud account:savetoken --account ${{ secrets.SuperSecret }} --authid "cisdf" --tokenid ${{ secrets.SuperSecret }} --tokensecret ${{ secrets.SuperSecret }}
     - name: Account setup through the script
