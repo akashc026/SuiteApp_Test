@@ -21,7 +21,7 @@ jobs:
   #     run : docker push akashc026/test_node:latest
 
 
-  validate And Deploy:
+  validate_Deploy:
   
     # needs: build
     runs-on: ubuntu-latest
