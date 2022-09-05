@@ -12,6 +12,8 @@ RUN apk add --no-cache openjdk11-jdk
 
 USER node
 
+RUN sudo whoami
+
 WORKDIR /usr/src/app
 COPY package*.json ./
 
