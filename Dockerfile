@@ -4,13 +4,15 @@ RUN apk --no-cache update && apk --no-cache add sudo
 
 ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 
-#ENV PATH=$PATH:/home/node/.npm-global/bin
+ENV PATH=$PATH:/home/node/.npm-global/bin
 
-# RUN apk add --no-cache bash
+RUN apk add --no-cache bash
 
 RUN apk add --no-cache openjdk11-jdk
 
 USER node
+
+RUN npm install
 
 RUN npm install -g --acceptsuitecloudsdklicense @oracle/suitecloud-cli@
 
