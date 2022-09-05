@@ -10,15 +10,19 @@ RUN apk add --no-cache openjdk11-jdk
 
 #RUN apt-get -y install sudo 
       
-RUN adduser -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
+#RUN adduser -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
 
-USER docker
+USER node
+
+RUN chown -R node:node
 
 RUN npm install
 
 RUN npm install -g --acceptsuitecloudsdklicense @oracle/suitecloud-cli
 
 WORKDIR /usr/src/app
+
+COPY –chown=node:node . .
 
 #ENTRYPOINT ["suitecloud"]
 
