@@ -1,19 +1,19 @@
-const { exec } = require('sudo-prompt');
-const realm = process.env.REALM_TECHNICAL;
-const token = process.env.TOKEN_TECHNICAL;
-const secret = process.env.SECRET_TECHNICAL;
+const { exec } = require("child_process");
+const realm = process.env.realm_master;
+const token = process.env.token_master;
+const secret = process.env.secret_master;
 
 const real_gapsol = process.env.real_gapsol;
 const token_gapsol = process.env.token_gapsol;
 const secret_gapsol = process.env.secret_gapsol;
-//const branch = process.env.CI_COMMIT_BRANCH;
-// if(branch == "master")
-// {
-// var authCmd new= `suitecloud account:savetoken --account ${real_gapsol} --authid "cisdf" --tokenid ${token_gapsol} --tokensecret ${secret_gapsol}`;
-// }
-// els
-  var authCmd = `sudo suitecloud account:savetoken --account ${realm} --authid "cisdf" --tokenid ${token} --tokensecret ${secret}`;
-//}
+const branch = process.env.CI_COMMIT_BRANCH;
+if(branch == "master")
+{
+var authCmd = `suitecloud account:savetoken --account ${real_gapsol} --authid "cisdf" --tokenid ${token_gapsol} --tokensecret ${secret_gapsol}`;
+}
+else{
+  var authCmd = `suitecloud account:savetoken --account ${realm} --authid "cisdf" --tokenid ${token} --tokensecret ${secret}`;
+}
 
 exec(authCmd, realm, (error, stdout, stderr) => {
   if (error) {
