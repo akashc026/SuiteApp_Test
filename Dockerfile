@@ -14,7 +14,7 @@ RUN apk --no-cache update && apk --no-cache add sudo
 
 USER node
 
-RUN chown -R node:node
+#RUN chown -R node:node
 
 RUN npm install
 
@@ -22,7 +22,7 @@ RUN npm install -g --acceptsuitecloudsdklicense @oracle/suitecloud-cli
 
 WORKDIR /usr/src/app
 
-COPY –chown=node:node . .
+#COPY –chown=node:node . .
 
 #ENTRYPOINT ["suitecloud"]
 
