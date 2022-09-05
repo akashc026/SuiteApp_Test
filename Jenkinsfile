@@ -26,7 +26,7 @@ pipeline {
             //    sh 'source ~/.bash_profile'
             //    sh 'npm install -g jshint'
             //    sh 'npm install -g --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli'
-                sh 'suitecloud project:adddependencies'
+                sh 'suitecloud project:adddependencies [-h]'
             }
         }
     }
