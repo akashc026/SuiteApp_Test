@@ -1,0 +1,57 @@
+name: Run tests on Pull request
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Docker Login
+      run: docker login -u ${{secrets.REGISTRY_USER}} -p ${{secrets.REGISTRY_PASS}}
+    - name: Build the Docker image
+      run: docker build -t sdf_first:suiteapp .
+    - name: Add tag to push
+      run : docker tag sdf_first:suiteapp akashc026/test_node:latest
+    - name: Push Docker image
+      run : docker push akashc026/test_node:latest
+
+
+  validate_Test:
+  
+    needs: build
+    runs-on: ubuntu-latest
+    container:
+      image: akashc026/test_node:latest
+      options: --user root -v ${{ github.workspace }}:/zap/wrk/:rw
+      credentials:
+        username: ${{secrets.REGISTRY_USER}}
+        password: ${{secrets.REGISTRY_PASS}}
+    env:
+      REALM_TECHNICAL: ${{ secrets.REALM_TECHNICAL }}
+      TOKEN_TECHNICAL: ${{ secrets.TOKEN_TECHNICAL }}
+      SECRET_TECHNICAL: ${{ secrets.SECRET_TECHNICAL }}
+      REAL_GAPSOL: ${{ secrets.REAL_GAPSOL }}
+      TOKEN_GAPSOL: ${{ secrets.TOKEN_GAPSOL }}
+      SECRET_GAPSOL: ${{ secrets.SECRET_GAPSOL }}
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: npm get
+      run : npm ci
+    - name: Unit Test (Jest)
+      run : npm run test
+    - name: suitecloud
+      run : suitecloud --version
+    # Without Account setup we can't validate the SuiteApp
+    - name : Check which Branch is there to deploy Master branch
+      if: ${{github.ref == 'refs/heads/master' && github.event_name == 'pull_request'}}
+      run : sudo suitecloud account:savetoken --account "$REALM_TECHNICAL" --authid "cisdf" --tokenid "$TOKEN_TECHNICAL" --tokensecret "$SECRET_TECHNICAL"
+    - name: Dependency Suiteapp
+      run : sudo suitecloud project:adddependencies
+    - name: SuiteApp Validate
+      run : sudo suitecloud project:validate --server
