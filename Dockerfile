@@ -18,16 +18,16 @@ USER root
 
 #RUN whoami
 
-# WORKDIR /usr/src/app
-# COPY package*.json ./
+WORKDIR /usr/src/app
+COPY package*.json ./
 
-# RUN npm install
+RUN npm install
 
-# COPY ./ ./
+COPY ./ ./
 
 RUN npm install -g --acceptsuitecloudsdklicense @oracle/suitecloud-cli@
 
-# RUN ls /usr/src/app
+RUN ls /usr/src/app
 
 #WORKDIR /usr/src/app
 
