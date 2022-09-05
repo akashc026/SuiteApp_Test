@@ -47,4 +47,4 @@ jobs:
     - name: Dependency Suiteapp
       run : sudo suitecloud project:adddependencies
     - name: Validate Suiteapp
-      run : sudo suitecloud account:savetoken --account "REALM_TECHNICAL" --authid "cisdf" --tokenid "TOKEN_TECHNICAL" --tokensecret "SECRET_TECHNICAL"
+      run : sudo suitecloud account:savetoken --account "$REALM_TECHNICAL" --authid "cisdf" --tokenid "$TOKEN_TECHNICAL" --tokensecret "$SECRET_TECHNICAL"
