@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM node:14.17.0-alpine3.13
 
 ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 
@@ -8,7 +8,7 @@ RUN apk add --no-cache bash
 
 RUN apk add --no-cache openjdk11-jdk
 
-RUN apt-get -y install sudo 
+#RUN apt-get -y install sudo 
       
 RUN adduser -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
 
