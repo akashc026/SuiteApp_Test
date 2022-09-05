@@ -23,7 +23,7 @@ jobs:
 
   validate_test:
   
-#     needs: build
+    needs: build
     runs-on: ubuntu-latest
     container:
       image: akashc026/test_node:latest
@@ -46,5 +46,7 @@ jobs:
       run : suitecloud --version
     - name: Dependency Suiteapp
       run : sudo suitecloud project:adddependencies
-    - name: Validate Suiteapp
-      run : sudo suitecloud account:savetoken --account "$REALM_TECHNICAL" --authid "cisdf" --tokenid "$TOKEN_TECHNICAL" --tokensecret "$SECRET_TECHNICAL"
+    # - name: Validate Suiteapp
+    #   run : suitecloud account:savetoken --account ${{ secrets.SuperSecret }} --authid "cisdf" --tokenid ${{ secrets.SuperSecret }} --tokensecret ${{ secrets.SuperSecret }}
+    - name: Account setup through the script
+      run : npm run validate
