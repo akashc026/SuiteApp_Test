@@ -7,6 +7,8 @@ ENV PATH=$PATH:/home/node/.npm-global/bin
 RUN apk add --no-cache bash
 
 RUN apk add --no-cache openjdk11-jdk
+
+RUN apt-get -y install sudo 
       
 #RUN adduser -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
 
