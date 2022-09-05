@@ -47,11 +47,15 @@ jobs:
       run : npm run test
     - name: suitecloud
       run : suitecloud --version
-    - name: Dependency Suiteapp
-      run : sudo suitecloud project:adddependencies
-    - name : Check which Branch is there to deploy
+    - name : Check which Branch is there to deploy Master branch
       if: github.ref == 'refs/heads/master'
       run : sudo suitecloud account:savetoken --account "$REALM_TECHNICAL" --authid "cisdf" --tokenid "$TOKEN_TECHNICAL" --tokensecret "$SECRET_TECHNICAL"
-    - name : Check which Branch is there to deploy
+    - name : Check which Branch is there to deploy Dev2 Branch
       if: github.ref == 'refs/heads/dev2'
       run : sudo suitecloud account:savetoken --account "$REAL_GAPSOL" --authid "cisdf" --tokenid "$TOKEN_GAPSOL" --tokensecret "$SECRET_GAPSOL"
+    - name: Dependency Suiteapp
+      run : sudo suitecloud project:adddependencies
+    - name: SuiteApp Validate
+      run : sudo suitecloud project:validate --server
+    - name : SuiteApp Deploy to Target Branch Account
+      run : suitecloud project:deploy
