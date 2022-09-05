@@ -50,6 +50,6 @@ jobs:
     #   run : npm install sudo-prompt
     - name : Check which Branch is there to deploy
       if: github.ref == 'refs/heads/master'
-      run : suitecloud account:savetoken --account "$REALM_TECHNICAL" --authid "cisdf" --tokenid "$TOKEN_TECHNICAL" --tokensecret "$SECRET_TECHNICAL"
+      run : sudo suitecloud account:savetoken --account "$REALM_TECHNICAL" --authid "cisdf" --tokenid "$TOKEN_TECHNICAL" --tokensecret "$SECRET_TECHNICAL"
     # - name: Account setup through the script
     #   run : npm run validate
