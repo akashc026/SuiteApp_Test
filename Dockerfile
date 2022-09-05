@@ -8,7 +8,7 @@ RUN apk add --no-cache bash
 
 RUN apk add --no-cache openjdk11-jdk
 
-#RUN apt-get -y install sudo 
+RUN apk --no-cache update && apk --no-cache add sudo
       
 #RUN adduser -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
 
