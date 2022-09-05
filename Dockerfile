@@ -13,9 +13,11 @@ RUN apk add --no-cache openjdk11-jdk
 USER node
 
 WORKDIR /usr/src/app
-COPY ./ /usr/src/app
+COPY package*.json ./
 
 RUN npm install
+
+COPY ./ ./
 
 RUN npm install -g --acceptsuitecloudsdklicense @oracle/suitecloud-cli@
 
