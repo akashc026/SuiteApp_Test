@@ -12,6 +12,8 @@ RUN apk add --no-cache openjdk11-jdk
 
 USER node
 
+RUN ls /home/node/.npm-global
+
 RUN chown -R `whoami` /home/node/.npm-global/.npm
 RUN chown -R `whoami` /home/node/.npm-global/node_modules
 
