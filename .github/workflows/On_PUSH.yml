@@ -35,6 +35,9 @@ jobs:
       REALM_TECHNICAL: ${{ secrets.REALM_TECHNICAL }}
       TOKEN_TECHNICAL: ${{ secrets.TOKEN_TECHNICAL }}
       SECRET_TECHNICAL: ${{ secrets.SECRET_TECHNICAL }}
+      REAL_GAPSOL: ${{ secrets.REAL_GAPSOL }}
+      TOKEN_GAPSOL: ${{ secrets.TOKEN_GAPSOL }}
+      SECRET_GAPSOL: ${{ secrets.SECRET_GAPSOL }}
 
     steps:
     - uses: actions/checkout@v3
@@ -46,10 +49,9 @@ jobs:
       run : suitecloud --version
     - name: Dependency Suiteapp
       run : sudo suitecloud project:adddependencies
-    # - name : Install sudo prompt
-    #   run : npm install sudo-prompt
     - name : Check which Branch is there to deploy
       if: github.ref == 'refs/heads/master'
       run : sudo suitecloud account:savetoken --account "$REALM_TECHNICAL" --authid "cisdf" --tokenid "$TOKEN_TECHNICAL" --tokensecret "$SECRET_TECHNICAL"
-    # - name: Account setup through the script
-    #   run : npm run validate
+    - name : Check which Branch is there to deploy
+      if: github.ref == 'refs/heads/dev2'
+      run : sudo suitecloud account:savetoken --account "$REAL_GAPSOL" --authid "cisdf" --tokenid "$TOKEN_GAPSOL" --tokensecret "$SECRET_GAPSOL"
