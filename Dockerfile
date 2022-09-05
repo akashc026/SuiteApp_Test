@@ -2,9 +2,9 @@ FROM node:16.15.1-alpine3.16
 
 RUN apk --no-cache update && apk --no-cache add sudo
 
-ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
+# ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 
-ENV PATH=$PATH:/home/node/.npm-global/bin
+# ENV PATH=$PATH:/home/node/.npm-global/bin
 
 RUN apk add --no-cache bash
 
@@ -18,16 +18,16 @@ USER root
 
 #RUN whoami
 
-WORKDIR /usr/src/app
-COPY package*.json ./
+# WORKDIR /usr/src/app
+# COPY package*.json ./
 
-RUN npm install
+# RUN npm install
 
-COPY ./ ./
+# COPY ./ ./
 
 RUN npm install -g --acceptsuitecloudsdklicense @oracle/suitecloud-cli@
 
-RUN ls /usr/src/app
+# RUN ls /usr/src/app
 
 #WORKDIR /usr/src/app
 
