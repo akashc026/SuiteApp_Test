@@ -23,7 +23,7 @@ jobs:
 
   validate_test:
   
-    needs: build
+#     needs: build
     runs-on: ubuntu-latest
     container:
       image: akashc026/test_node:latest
