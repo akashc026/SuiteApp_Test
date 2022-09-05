@@ -12,21 +12,22 @@ RUN apk add --no-cache openjdk11-jdk
 
 USER node
 
-RUN ls ~/.npm-global
 
-RUN chown -R `whoami` /home/node/.npm-global/.npm
-RUN chown -R `whoami` /home/node/.npm-global/node_modules
+#RUN chown -R `whoami` /home/node/.npm-global/.npm
+#RUN chown -R `whoami` /home/node/.npm-global/node_modules
 
 #RUN whoami
 
 WORKDIR /usr/src/app
-COPY package*.json ./
+#COPY package*.json ./
 
 RUN npm install
 
-COPY ./ ./
+#COPY ./ ./
 
 RUN npm install -g --acceptsuitecloudsdklicense @oracle/suitecloud-cli@
+
+RUN ls /usr/src/app
 
 #WORKDIR /usr/src/app
 
