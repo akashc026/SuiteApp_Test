@@ -1,4 +1,6 @@
-FROM node:14.17.0-alpine3.13
+FROM node:16.15.1-alpine3.16
+
+RUN apk --no-cache update && apk --no-cache add sudo
 
 ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 
@@ -8,64 +10,30 @@ RUN apk add --no-cache bash
 
 RUN apk add --no-cache openjdk11-jdk
 
-RUN apk --no-cache update && apk --no-cache add sudo
-      
-#RUN adduser -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
+USER root
 
-USER node
 
-#RUN chown -R node:node
+#RUN chown -R `whoami` /home/node/.npm-global/.npm
+#RUN chown -R `whoami` /home/node/.npm-global/node_modules
+
+#RUN whoami
+
+WORKDIR /usr/src/app
+COPY package*.json ./
 
 RUN npm install
 
-RUN npm install -g --acceptsuitecloudsdklicense @oracle/suitecloud-cli
+COPY ./ ./
 
-WORKDIR /usr/src/app
+RUN npm install -g --acceptsuitecloudsdklicense @oracle/suitecloud-cli@
 
-#COPY –chown=node:node . .
+RUN ls /usr/src/app
 
-#ENTRYPOINT ["suitecloud"]
+#WORKDIR /usr/src/app
+
+ENTRYPOINT ["suitecloud"]
 
 CMD ["-h"]
-
-
-
-
-
-
-
-
-
-
-# FROM alpine:3.14
-# RUN addgroup -S myawesomegroup
-# RUN adduser -S myawesomeuser -G myawesomegroup
-# RUN apk add --no-cache bash
-# RUN apk add --update npm
-# RUN apk add openjdk11
-# USER myawesomeuser
-# WORKDIR /home/myawesomeuser
-# RUN chown -R myawesomeuser:myawesomegroup /home/myawesomeuser
-# COPY package*.json ./
-# RUN npm install
-# #COPY ./ /usr/app
-# RUN npm install --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli
-# CMD ["/bin/bash"]
-
-
-# FROM alpine:3.14
-# RUN adduser -D $USER && mkdir -p /etc/sudoers.d \
-#         && echo "$USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/$USER \
-#         && chmod 0440 /etc/sudoers.d/$USER
-# USER $USER
-# WORKDIR $HOME
-# RUN whoami
-# RUN sudo whoami
-# RUN apk add --no-cache bash
-# RUN apk add --update npm
-# RUN apk add openjdk11
-# RUN npm install -g --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli
-# CMD ["/bin/bash"]
 
 
 # FROM alpine:3.14
