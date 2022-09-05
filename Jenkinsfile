@@ -7,7 +7,7 @@ pipeline {
         stage('Build') {
             steps {
               echo 'Building.....'
-              sh 'sudo npm install -g'
+              sh 'npm install -g'
             }
         }
         stage('Validate_Test') {
