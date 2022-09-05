@@ -1,4 +1,4 @@
-const { exec } = require("child_process");
+const { exec } = require('sudo-prompt');
 const realm = process.env.REALM_TECHNICAL;
 const token = process.env.TOKEN_TECHNICAL;
 const secret = process.env.SECRET_TECHNICAL;
@@ -12,7 +12,7 @@ const secret_gapsol = process.env.secret_gapsol;
 // var authCmd new= `suitecloud account:savetoken --account ${real_gapsol} --authid "cisdf" --tokenid ${token_gapsol} --tokensecret ${secret_gapsol}`;
 // }
 // els
-  var authCmd = `suitecloud account:savetoken --account ${realm} --authid "cisdf" --tokenid ${token} --tokensecret ${secret}`;
+  var authCmd = `sudo suitecloud account:savetoken --account ${realm} --authid "cisdf" --tokenid ${token} --tokensecret ${secret}`;
 //}
 
 exec(authCmd, realm, (error, stdout, stderr) => {
