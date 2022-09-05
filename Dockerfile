@@ -18,7 +18,7 @@ RUN npm install -g --acceptsuitecloudsdklicense @oracle/suitecloud-cli
 
 WORKDIR /usr/src/app
 
-#ENTRYPOINT ["suitecloud"]
+ENTRYPOINT ["suitecloud"]
 
 CMD ["-h"]
 
