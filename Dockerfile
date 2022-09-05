@@ -4,7 +4,7 @@ RUN apk --no-cache update && apk --no-cache add sudo
 
 ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 
-ENV PATH=$PATH:/home/node/.npm-global/bin
+#ENV PATH=$PATH:/home/node/.npm-global/bin
 
 # RUN apk add --no-cache bash
 
@@ -14,7 +14,7 @@ USER node
 
 RUN npm install -g --acceptsuitecloudsdklicense @oracle/suitecloud-cli@
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
 ENTRYPOINT ["suitecloud"]
 
