@@ -1,4 +1,4 @@
-FROM node:14.17.0-ubuntu:latest
+FROM ubuntu:latest
 
 ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 
