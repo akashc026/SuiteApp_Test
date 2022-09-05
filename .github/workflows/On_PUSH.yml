@@ -58,4 +58,4 @@ jobs:
     - name: SuiteApp Validate
       run : sudo suitecloud project:validate --server
     - name : SuiteApp Deploy to Target Branch Account
-      run : suitecloud project:deploy
+      run : sudo suitecloud project:deploy
