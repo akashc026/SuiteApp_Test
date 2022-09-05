@@ -20,7 +20,7 @@ WORKDIR /usr/src/app
 
 #ENTRYPOINT ["suitecloud"]
 
-CMD ["/bin/bash"]
+CMD ["-h"]
 
 
 
