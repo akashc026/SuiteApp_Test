@@ -10,9 +10,9 @@ RUN apk add --no-cache openjdk11-jdk
 
 RUN apt-get -y install sudo 
       
-#RUN adduser -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
+RUN adduser -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
 
-USER node
+USER docker
 
 RUN npm install
 
