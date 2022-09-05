@@ -1,24 +1,38 @@
-FROM node:16.15.1-alpine3.16
+# FROM node:16.15.1-alpine3.16
 
+# RUN apk --no-cache update && apk --no-cache add sudo
+
+# ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
+
+# ENV PATH=$PATH:/home/node/.npm-global/bin
+
+# # RUN apk add --no-cache bash
+
+# RUN apk add --no-cache openjdk11-jdk
+
+# USER node
+
+# RUN npm install -g --acceptsuitecloudsdklicense @oracle/suitecloud-cli@
+
+# WORKDIR /app
+
+# ENTRYPOINT ["suitecloud"]
+
+# CMD ["-h"]
+
+
+FROM node:16.15.1-alpine3.16 alpine:3.14
 RUN apk --no-cache update && apk --no-cache add sudo
-
-ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
-
-ENV PATH=$PATH:/home/node/.npm-global/bin
-
-# RUN apk add --no-cache bash
-
+USER root
+RUN apk add --no-cache bash
 RUN apk add --no-cache openjdk11-jdk
-
-USER node
-
-RUN npm install -g --acceptsuitecloudsdklicense @oracle/suitecloud-cli@
-
-WORKDIR /app
-
-ENTRYPOINT ["suitecloud"]
-
-CMD ["-h"]
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm install -g --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli
+RUN npm ci
+COPY ./ ./
+RUN ls /usr/src/app
+CMD ["/bin/bash"]
 
 
 # FROM alpine:3.14
