@@ -49,7 +49,7 @@ jobs:
       run : suitecloud --version
     # Without Account setup we can't validate the SuiteApp
     - name : Check which Branch is Created the PR and setup account fot that branch
-      if: ${{github.ref == 'refs/heads/dev2' && github.event_name == 'pull_request'}}
+      if: github.event.pull_request.base.ref == 'master'
       run : sudo suitecloud account:savetoken --account "$REAL_GAPSOL" --authid "cisdf" --tokenid "$TOKEN_GAPSOL" --tokensecret "$SECRET_GAPSOL"
     - name: Dependency Suiteapp
       run : sudo suitecloud project:adddependencies
