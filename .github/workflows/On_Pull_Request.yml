@@ -50,7 +50,7 @@ jobs:
     # Without Account setup we can't validate the SuiteApp
     - name : Check which Branch is Created the PR and setup account fot that branch
       if: github.event.pull_request.base.ref == 'master'
-      run : sudo suitecloud account:savetoken --account "$REAL_GAPSOL" --authid "cisdf" --tokenid "$TOKEN_GAPSOL" --tokensecret "$SECRET_GAPSOL"
+      run : sudo suitecloud account:savetoken --account "$REALM_TECHNICAL" --authid "cisdf" --tokenid "$TOKEN_TECHNICAL" --tokensecret "$SECRET_TECHNICAL"
     - name: Dependency Suiteapp
       run : sudo suitecloud project:adddependencies
     - name: SuiteApp Validate
