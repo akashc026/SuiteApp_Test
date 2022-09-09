@@ -23,7 +23,7 @@ jobs:
 
   Validate__Deploy:
   
-    needs: build
+    needs: Build
     runs-on: ubuntu-latest
     container:
       image: akashc026/test_node:latest
